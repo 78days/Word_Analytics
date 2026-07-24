@@ -2,6 +2,15 @@
 
 A React app that analyzes text in real time — word count, character count, and remaining characters for Instagram and Facebook posts (2,200 each).
 
+Built as part of the [ByteGrad](https://bytegrad.com) Professional React & Next.js course.
+
+## Live demo
+
+**Production:** [https://word-analytics-gilt.vercel.app](https://word-analytics-gilt.vercel.app)
+
+Hosted on [Vercel](https://vercel.com) (`moirai2/word-analytics`).
+
+Repo: [78days/Word_Analytics](https://github.com/78days/Word_Analytics)
 
 ## Features
 
@@ -23,13 +32,31 @@ Open the URL shown in the terminal (usually `http://localhost:5173`).
 
 ## Scripts
 
-| Command           | Description                                      |
-| ----------------- | ------------------------------------------------ |
-| `npm run dev`     | Start the Vite development server                |
-| `npm run build`   | Create a production build in `dist/`             |
-| `npm run preview` | Preview the production build locally             |
-| `npm run lint`    | Run ESLint                                       |
-| `npm run biome`   | Format and lint with Biome (`check --write`)     |
+| Command           | Description                                  |
+| ----------------- | -------------------------------------------- |
+| `npm run dev`     | Start the Vite development server            |
+| `npm run build`   | Create a production build in `dist/`         |
+| `npm run preview` | Preview the production build locally         |
+| `npm run lint`    | Run ESLint                                   |
+| `npm run biome`   | Format and lint with Biome (`check --write`) |
+
+## Deploy
+
+This project is set up for **Vite** on Vercel (`vite build` → `dist/`).
+
+Redeploy to production from the project root:
+
+```bash
+vercel --prod
+```
+
+First-time setup (already done for this project):
+
+```bash
+vercel
+```
+
+To enable auto-deploys from GitHub, connect GitHub under [Vercel login connections](https://vercel.com/account/login-connections), then link the repo in the project’s **Settings → Git**.
 
 ## Project structure
 
@@ -60,4 +87,5 @@ Character limits are hard-coded as **2200** for both Instagram and Facebook.
 
 - [React 19](https://react.dev)
 - [Vite 8](https://vite.dev)
+- [Vercel](https://vercel.com) for hosting
 - ESLint + Biome for linting/formatting
