@@ -1,91 +1,87 @@
 # Word Analytics
 
-A React app that analyzes text in real time — word count, character count, and remaining characters for Instagram and Facebook posts (2,200 each).
+Word Analytics is a lightweight React app that helps users track and optimize text in real time for social media posts. It calculates total words, total characters, and remaining characters for platform-specific limits, making it useful for crafting Instagram and Facebook captions without exceeding the allowed length.
 
-Built as part of the [ByteGrad](https://bytegrad.com) Professional React & Next.js course.
+Built with React and Vite, the app offers instant feedback as you type and highlights when a post exceeds the limit.
 
-## Live demo
+## Live Demo
 
-**Production:** [https://word-analytics-gilt.vercel.app](https://word-analytics-gilt.vercel.app)
-
-Hosted on [Vercel](https://vercel.com) (`moirai2/word-analytics`).
-
-Repo: [78days/Word_Analytics](https://github.com/78days/Word_Analytics)
+- Production: https://word-analytics-gilt.vercel.app
+- Repository: https://github.com/78days/Word_Analytics
 
 ## Features
 
-- Live word and character counting as you type
-- Instagram / Facebook character limits with a red highlight when over limit
-- Blocks `<script>` tags and shows a warning message
-- Responsive layout for smaller screens
+- Real-time word and character counting while typing
+- Instagram and Facebook character limit tracking
+- Visual warning when a post exceeds the allowed limit
+- Remaining-character indicators for quick post optimization
+- Script-tag blocking with a warning message to reduce unsafe input
+- Responsive layout for desktop and smaller screens
 
-## Getting started
+## Tech Stack
 
-**Requirements:** Node.js 18+
+- React 19
+- Vite 8
+- JavaScript
+- CSS
+- Vercel for deployment
+
+## Getting Started
+
+### Requirements
+
+- Node.js 18+
+
+### Install and run
 
 ```bash
 npm install
 npm run dev
 ```
 
-Open the URL shown in the terminal (usually `http://localhost:5173`).
+Then open the local Vite URL shown in the terminal (usually http://localhost:5173).
 
-## Scripts
-
-| Command           | Description                                  |
-| ----------------- | -------------------------------------------- |
-| `npm run dev`     | Start the Vite development server            |
-| `npm run build`   | Create a production build in `dist/`         |
-| `npm run preview` | Preview the production build locally         |
-| `npm run lint`    | Run ESLint                                   |
-| `npm run biome`   | Format and lint with Biome (`check --write`) |
-
-## Deploy
-
-This project is set up for **Vite** on Vercel (`vite build` → `dist/`).
-
-Redeploy to production from the project root:
+## Available Scripts
 
 ```bash
+npm run dev
+npm run build
+npm run preview
+npm run lint
+npm run biome
+```
+
+## Project Structure
+
+```text
+src/
+├── App.jsx
+├── App.css
+├── main.jsx
+├── index.css
+├── header.jsx
+├── backgroundimage.jsx
+├── container.jsx
+├── Textarea.jsx
+├── warning.jsx
+├── stats.jsx
+├── footer.jsx
+└── assets/
+```
+
+## How It Works
+
+The app keeps text in state and derives the live stats from it. As the user types, the app updates the word count, total character count, and remaining count for each platform. If a user exceeds the limit, the relevant stat card is highlighted to signal the issue.
+
+## Deployment
+
+This project is configured for Vite on Vercel:
+
+```bash
+npm run build
 vercel --prod
 ```
 
-First-time setup (already done for this project):
+## Purpose
 
-```bash
-vercel
-```
-
-To enable auto-deploys from GitHub, connect GitHub under [Vercel login connections](https://vercel.com/account/login-connections), then link the repo in the project’s **Settings → Git**.
-
-## Project structure
-
-```
-src/
-├── App.jsx              # Root layout (Header, Container, Footer)
-├── App.css              # App styles
-├── main.jsx             # React entry point
-├── index.css            # Base styles
-├── header.jsx           # Title + background
-├── backgroundimage.jsx  # Hero background layer
-├── container.jsx        # Text state + derived stats
-├── Textarea.jsx         # Controlled textarea + script warning
-├── warning.jsx          # Warning message UI
-├── stats.jsx            # Words / characters / platform limits
-└── footer.jsx           # Footer copy
-```
-
-## How it works
-
-1. **`Container`** owns the text state and derives stats (words, characters, platform leftovers).
-2. **`Textarea`** is controlled: it updates that state on change and strips `<script>` if pasted/typed.
-3. **`Stats`** receives the counts as props and renders four stat cards. Negative remaining counts use the `--limit` style (red).
-
-Character limits are hard-coded as **2200** for both Instagram and Facebook.
-
-## Tech stack
-
-- [React 19](https://react.dev)
-- [Vite 8](https://vite.dev)
-- [Vercel](https://vercel.com) for hosting
-- ESLint + Biome for linting/formatting
+This project is designed to help creators, marketers, and everyday users quickly check whether a post fits within social media limits before publishing.
